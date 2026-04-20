@@ -1,26 +1,184 @@
-@import "tailwindcss";
+/* RESET */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
+/* VARIABLES JYL */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --bg: #020617;
+  --bg-2: #0f172a;
+  --bg-3: #1e1b4b;
+  --gold: #c6a96b;
+  --text: #e5e7eb;
+  --muted: #9ca3af;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+/* BODY */
+body {
+  min-height: 100vh;
+  background: linear-gradient(135deg, var(--bg), var(--bg-2), var(--bg-3));
+  color: var(--text);
+  font-family: Inter, system-ui, Arial, sans-serif;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+/* CONTENEDOR */
+.container {
+  max-width: 1600px;
+  margin: 0 auto;
+  padding: 40px 20px;
+}
+
+/* HEADER */
+.page-header {
+  margin-bottom: 40px;
+}
+
+.page-title {
+  font-family: "Playfair Display", serif;
+  font-size: 32px;
+  letter-spacing: 6px;
+}
+
+.page-line {
+  width: 80px;
+  height: 2px;
+  background: var(--gold);
+  margin: 12px 0;
+}
+
+.page-sub {
+  color: var(--muted);
+  font-size: 14px;
+}
+
+/* GRID MÁS ANCHO */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr); /* 🔥 ahora más anchas */
+  gap: 25px;
+}
+
+/* RESPONSIVE */
+@media (max-width: 1200px) {
+  .grid {
+    grid-template-columns: repeat(3, 1fr);
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+@media (max-width: 768px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+/* CARD */
+.card {
+  background: var(--bg-2);
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  transition: all 0.3s ease;
+  
+}
+
+.card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.5);
+}
+
+/* CONTENEDOR CARRUSEL */
+.card-img-container {
+  width: 100%;
+  height: 300px;
+  position: relative;
+  overflow: hidden;
+  background: #000; /* evita huecos si imagen no carga */
+}
+
+.card-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain; /* 🔥 muestra completa */
+  background: #020617; /* fondo elegante */
+  padding: 10px;
+}
+.card-body {
+  padding: 16px;
+}
+
+/* BORDE PREMIUM */
+.card-img-container::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  pointer-events: none;
+}
+
+/* HOVER IMAGEN */
+.card:hover .card-img {
+  transform: scale(1.05);
+}
+
+/* BOTONES CARRUSEL */
+.carousel-controls {
+  position: absolute;
+  top: 50%;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  transform: translateY(-50%);
+  padding: 0 6px;
+}
+
+.carousel-controls button {
+  background: rgba(0, 0, 0, 0.4);
+  color: white;
+  border: none;
+  padding: 6px 12px;
+  cursor: pointer;
+  font-size: 18px;
+  border-radius: 6px;
+  transition: 0.3s;
+}
+
+.carousel-controls button:hover {
+  background: var(--gold);
+  color: black;
+}
+
+
+
+.card-cat {
+  font-size: 10px;
+  letter-spacing: 2px;
+  color: var(--muted);
+  text-transform: uppercase;
+}
+
+.card-title {
+  font-size: 14px;
+  margin: 4px 0;
+}
+
+.card-price {
+  color: var(--gold);
+  font-size: 14px;
+  margin-bottom: 6px;
+}
+
+.card-desc {
+  font-size: 12px;
+  color: var(--muted);
+  margin-bottom: 10px;
+}
+
+/* RECOMENDACIÓN PREMIUM */
+.card-rec {
+  font-size: 12px;
+  color: #c6a96b;
+  margin-top: 6px;
+  line-height: 1.4;
+  font-style: italic;
 }
