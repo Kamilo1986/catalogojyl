@@ -1,23 +1,30 @@
 export default function Home() {
   return (
-    <main className="min-h-screen flex flex-col items-center justify-center text-center px-6">
+    <main className="hero">
 
-      <h1 className="text-5xl md:text-7xl font-bold leading-tight mb-6">
-        Alquiler de Menaje y Decoración para Eventos
-      </h1>
+      <div className="hero-container">
 
-      <p className="text-gray-300 max-w-2xl mb-8">
-        Especialistas en alquiler de vajilla, cristalería, mesas, sillas y decoración premium para eventos corporativos y sociales.
-      </p>
+        <h1 className="hero-title">
+          Alquiler de Menaje y{" "}
+          <span className="hero-highlight">
+            Decoración Premium
+          </span>{" "}
+          para Eventos
+        </h1>
 
-      <div className="flex gap-4">
-        <a href="/vajilla" className="btn-primary">
-          Ver Catálogo
+        <p className="hero-text">
+          Creamos experiencias únicas con vajilla, cristalería, mobiliario y
+          decoración elegante para eventos corporativos y sociales.
+        </p>
+
+        <a
+          href="https://wa.me/573208836296"
+          target="_blank"
+          className="hero-btn"
+        >
+          📲 Cotizar por WhatsApp
         </a>
 
-        <a href="#" className="border border-white px-6 py-3 rounded-full hover:bg-white hover:text-black transition">
-          WhatsApp
-        </a>
       </div>
 
     </main>
